@@ -18,7 +18,12 @@ function! packload#load(packages) abort
 endfunction
 
 function! s:glob_package_opt(packpath, packages) abort
-  let l:pattern = '{' . a:packpath . '}/pack/{' . a:packages . '}/opt/*'
+  if match(a:packages, ',') >= 0
+    let l:packages = '{' . a:packages . '}'
+  else
+    let l:packages = a:packages
+  endif
+  let l:pattern = '{' . a:packpath . '}/pack/' . l:packages . '/opt/*'
   return glob(l:pattern, v:false, v:true)
 endfunction
 
