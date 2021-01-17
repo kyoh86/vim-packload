@@ -5,7 +5,7 @@
 
 - インストール                                          |vim-packload-install|
 - コマンド                                             |vim-packload-commands|
-  - Packload                                                       |:Packload|
+  - Packload {package} ..                                          |:Packload|
 - LICENSE                                               |vim-packload-license|
 
 ==============================================================================
@@ -18,11 +18,11 @@
 ==============================================================================
 コマンド                                              *vim-packload-functions*
 
-Packload {packages}                                                *:Packload*
+Packload {package} ..                                              *:Packload*
 
 |'packpath'| 配下のパッケージ群から、該当するパッケージを見つけて、 `opt` 配下
 のプラグインをすべて |:packadd| します。
-{packages} には複数のパッケージをカンマ区切りで指定できます。
+{package} には複数のパッケージを指定できます。
 
 パッケージ構成の例: >
   pack/
@@ -44,7 +44,7 @@ Packload {packages}                                                *:Packload*
         - baz-plugin3
 <
 
-このとき、 `:Packload foo,bar` と呼び出すことで、以下のように `:packadd` が実
+このとき、 `:Packload foo bar` と呼び出すことで、以下のように `:packadd` が実
 行されます: >
   :packadd foo-plugin2
   :packadd foo-plugin3
