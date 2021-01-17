@@ -11,13 +11,14 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 function! packload#load(packages) abort
-  for l:plugin in s:glob_package(&packpath, a:packages)
+  for l:path in s:glob_package_opt(&packpath, a:packages)
+    let l:plugin = fnamemodify(trim(l:path, '/\\'), ':t')
     packadd l:plugin
   endfor
 endfunction
 
-function! s:glob_package(packpath, packages) abort
-  let l:pattern = '{' . a:packpath . '}/*/{' . a:packages . '}'
+function! s:glob_package_opt(packpath, packages) abort
+  let l:pattern = '{' . a:packpath . '}/pack/{' . a:packages . '}/opt/*'
   return glob(l:pattern, v:false, v:true)
 endfunction
 
