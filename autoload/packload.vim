@@ -10,13 +10,13 @@ let g:autoloaded_packload = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! packload#load(packages) abort
+function! packload#load(bang, packages) abort
   let l:sentinel = s:build_sentinel(a:packages)
   for l:path in s:glob_package_opt(&packpath, a:packages)
     let l:info = s:path_to_info(l:path)
     call l:sentinel.mark(l:info['package'])
     echo 'Loading ' . l:info['plugin']
-    packadd l:info['plugin']
+    execute('packadd' . a:bang . ' ' . l:info['plugin'])
   endfor
 
   call l:sentinel.validate()
