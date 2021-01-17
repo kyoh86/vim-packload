@@ -1,0 +1,63 @@
+*vim-packload.txt* :Packload コマンドを提供してpack内のoptをすべて読み込みます
+
+==============================================================================
+目次                                                   *vim-packload-contents*
+
+- インストール                                          |vim-packload-install|
+- コマンド                                             |vim-packload-commands|
+  - Packload                                                       |:Packload|
+- LICENSE                                               |vim-packload-license|
+
+==============================================================================
+インストール                                            *vim-packload-install*
+
+`vim-plug` を使用する場合は以下の通りです。 >
+    Plug 'kyoh86/vim-packload'
+<
+
+==============================================================================
+コマンド                                              *vim-packload-functions*
+
+Packload {packages}                                                *:Packload*
+
+|'packpath'| 配下のパッケージ群から、該当するパッケージを見つけて、 `opt` 配下
+のプラグインをすべて |:packadd| します。
+{packages} には複数のパッケージをカンマ区切りで指定できます。
+
+パッケージ構成の例: >
+  pack/
+    - foo/
+      - start/
+        - foo-plugin1
+      - opt/
+        - foo-plugin2
+        - foo-plugin3
+    - bar/
+      - opt/
+        - bar-plugin1
+        - bar-plugin2
+    - baz/
+      - start/
+        - baz-plugin1
+      - opt/
+        - baz-plugin2
+        - baz-plugin3
+<
+
+このとき、 `:Packload foo,bar` と呼び出すことで、以下のように `:packadd` が実
+行されます: >
+  :packadd foo-plugin2
+  :packadd foo-plugin3
+  :packadd bar-plugin1
+  :packadd bar-plugin2
+<
+
+==============================================================================
+LICENSE                                                  *vim-packload-license*
+
+MIT License.
+
+Also see http://www.opensource.org/licenses/MIT for more information.
+
+vim:textwidth=78:tabstop=4:shiftwidth=4:expandtab:filetype=help:norl:
+
