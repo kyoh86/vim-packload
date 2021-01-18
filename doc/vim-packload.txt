@@ -13,7 +13,7 @@ Contents                                               *vim-packload-contents*
 ==============================================================================
 Install                                                 *vim-packload-install*
 
-`vim-plug` を使用する場合は以下の通りです。 >
+If you use `vim-plug`: >
     Plug 'kyoh86/vim-packload'
 <
 
@@ -24,9 +24,9 @@ Packload {package} ..                                              *:Packload*
 
 `Packload` loads `{package}`s from `'packpath'` and call `:packadd` for each
 plugin in their `opt`s.
-We can call this with multiple `{package}`s.
+It can be called with multiple `{package}`s.
 
-パッケージ構成の例: >
+A package structure for example: >
   pack/
     - foo/
       - start/
@@ -46,8 +46,7 @@ We can call this with multiple `{package}`s.
         - baz-plugin3
 <
 
-このとき、 `:Packload foo bar` と呼び出すことで、以下のように `:packadd` が実
-行されます: >
+Calling `:Packload foo bar`, 以下のように `:packadd` が実行されます: >
   :packadd foo-plugin2
   :packadd foo-plugin3
   :packadd bar-plugin1
