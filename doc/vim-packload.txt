@@ -46,7 +46,8 @@ A package structure for example: >
         - baz-plugin3
 <
 
-Calling `:Packload foo bar`, 以下のように `:packadd` が実行されます: >
+Then `:Packload foo bar` is called, causing some `:packadd` will be processed
+like below: >
   :packadd foo-plugin2
   :packadd foo-plugin3
   :packadd bar-plugin1

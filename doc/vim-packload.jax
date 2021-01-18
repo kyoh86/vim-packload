@@ -1,4 +1,6 @@
-*vim-packload* :Packload コマンドを提供してpack内のoptをすべて読み込みます
+*vim-packload* で |'packpath'| 配下のパッケージ群から、該当するパッケージを見
+つけて `opt` 配下のプラグインをすべて |:packadd| する `:Packload {package}..`
+コマンドを提供するプラグイン
 
 ==============================================================================
 目次                                                   *vim-packload-contents*
