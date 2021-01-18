@@ -1,32 +1,32 @@
-*vim-packload* で |'packpath'| 配下のパッケージ群から、該当するパッケージを見
-つけて `opt` 配下のプラグインをすべて |:packadd| する `:Packload {package}..`
-コマンドを提供するプラグイン
+*vim-packload* provides a command `:Packload {package} ..` that load
+`{package}`s from `'packpath'` and call `:packadd` for each plugin in their
+`opt`s.
 
 ==============================================================================
-目次                                                   *vim-packload-contents*
+Contents                                               *vim-packload-contents*
 
-- インストール                                          |vim-packload-install|
-- コマンド                                             |vim-packload-commands|
+- Install                                               |vim-packload-install|
+- Command                                              |vim-packload-commands|
   - Packload {package} ..                                          |:Packload|
 - LICENSE                                               |vim-packload-license|
 
 ==============================================================================
-インストール                                            *vim-packload-install*
+Install                                                 *vim-packload-install*
 
-`vim-plug` の場合: >
+If you use `vim-plug`: >
     Plug 'kyoh86/vim-packload'
 <
 
 ==============================================================================
-コマンド                                              *vim-packload-functions*
+Command                                              *vim-packload-functions*
 
 Packload {package} ..                                              *:Packload*
 
-|'packpath'| 配下のパッケージ群から、該当するパッケージを見つけて、 `opt` 配下
-のプラグインをすべて |:packadd| します。
-{package} には複数のパッケージを指定できます。
+`Packload` loads `{package}`s from `'packpath'` and call `:packadd` for each
+plugin in their `opt`s.
+It can be called with multiple `{package}`s.
 
-パッケージ構成の例: >
+A package structure for example: >
   pack/
     - foo/
       - start/
@@ -46,8 +46,8 @@ Packload {package} ..                                              *:Packload*
         - baz-plugin3
 <
 
-このとき、 `:Packload foo bar` と呼び出すことで、以下のように `:packadd` が実
-行されます: >
+Then `:Packload foo bar` is called, causing some `:packadd` will be processed
+like below: >
   :packadd foo-plugin2
   :packadd foo-plugin3
   :packadd bar-plugin1
@@ -62,4 +62,3 @@ MIT License.
 Also see http://www.opensource.org/licenses/MIT for more information.
 
 vim:textwidth=78:tabstop=4:shiftwidth=4:expandtab:filetype=help:norl:
-
